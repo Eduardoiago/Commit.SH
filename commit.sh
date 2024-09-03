@@ -61,17 +61,18 @@ done
 
 # Executa as operações do Git se a mensagem foi fornecida pelo usuário
 if [ -n "$MESSAGE" ]; then
+    	echo
     	git add .
-	echo "[*] Adding the changes to the local repository!"
+	echo -e "\033[1;33m [*] Adding the changes to the local repository! \033[0m"
 	echo
     	git commit -m "$MESSAGE"
 	echo
-	echo "[*] Adding the commit!"
+	echo -e "\033[1;33m [*] Adding the commit! \033[0m"
 	echo
 	# Caso o usuário esteja fazendo commit em outra branch, deve alterar a linha de comando para o nome da branch
     	git push -u origin main
 	echo
-	echo "[*] The push was completed successfully!"
+	echo -e "\033[1;34m [+] The push was completed successfully! \033[0m"
 else
     	echo "[-] Error: The commit message is required with the -m | --message parameter"
     	USAGE
